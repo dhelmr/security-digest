@@ -30,3 +30,5 @@ jobs:
         run: |
            mkdir -p data/data &&
            docker run -e OPENAI_API_KEY="$CHATGPT_KEY" -v $(pwd)/data:/data dhelmr/hn-security-digest:latest python main.py create-data --limit 20 --data /data/data --end-day 2025-02-07 --days 3
+        env:
+          CHATGPT_KEY: ${{ secrets.CHATGPT_KEY }}
