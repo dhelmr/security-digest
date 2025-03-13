@@ -24,7 +24,6 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
-      - uses: stefanzweifel/git-auto-commit-action@v4
       
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
@@ -32,13 +31,15 @@ jobs:
            mkdir -p data/data
            mkdir -p data/public
            docker run -e OPENAI_API_KEY="$CHATGPT_KEY" -v $(pwd)/data:/data dhelmr/hn-security-digest:latest python main.py create-data --limit 5 --data /data/data --end-day $(date +%F) --days 1
-           git add data/*
-           git commit -m "Add data for $(date +%F)"
-           git push
            docker run -v $(pwd)/data:/data dhelmr/hn-security-digest:latest python main.py render --data /data/data -o /data/public/
            ls data/public
         env:
           CHATGPT_KEY: ${{ secrets.CHATGPT_KEY }}
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Automated Change
+          file_pattern: 'data/*'
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
