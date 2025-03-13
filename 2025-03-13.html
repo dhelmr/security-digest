@@ -1,0 +1,75 @@
+<html>
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function toggleDetails(id) {
+            var element = document.getElementById(id);
+            if (element.style.display === "none" || element.style.display == "") {
+                element.style.display = "block";
+            } else {
+                element.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <h1>Hacker News Security Digest</h1>
+
+    <div class="header">
+
+        from <b>2025-03-13</b> to <b>2025-03-13</b> | <a class="navigation" href="index.html">back to index</a>
+    </div>
+
+    
+    <div class="entry">
+        <a href="https://www.websiteplanet.com/news/eshyft-report-breach/" target="_blank" rel="noopener noreferrer" class="title">&#39;Uber for nurses&#39; exposes 86K+ medical records, PII via open S3 bucket</a> <span class="tags"> 
+        <span class="tag">dataleak</span>
+            
+        <span class="tag">cybersecurity</span>
+            
+        <span class="tag">healthcare</span>
+            
+        </span>
+        <div class="teaser ai">The severe data leak incident involving ESHYFT underscores the critical need for cybersecurity in healthcare.</div>
+        <div class="meta">
+            <a href="https://news.ycombinator.com/item?id=43349115" target="_blank" rel="noopener noreferrer">Discussion</a> | Date:
+            2025-03-13 | Security Relevance: 1.0 |
+        </div>
+
+        <span class="toggle-btn" onclick="toggleDetails('details-1')">[Show AI-Generated Summary]</span>
+        <div id="details-1" class="details">
+            <div class="summary-container">
+                <div class="summary">
+                    <i class="ai">Article Summary</i>
+                    <ul>
+                        
+                        <li class="ai">An exposed database revealed sensitive PII of healthcare professionals due to lack of security.</li>
+                        
+                        <li class="ai">The incident highlights vulnerabilities that can lead to identity theft and cyber scams.</li>
+                        
+                        <li class="ai">Increased cybersecurity measures are essential as healthtech evolves and data breaches become more common.</li>
+                        
+                    </ul>
+                </div>
+                <div class="comments">
+                    <i class="ai">HN Comments Summary</i>
+                    <ul>
+                        
+                        <li class="ai">Concerns raised about ESHYFT's data handling and potential lack of HIPAA compliance.</li>
+                        
+                        <li class="ai">Criticism of healthcare tech industry's security failures and regulatory oversight.</li>
+                        
+                        <li class="ai">Discussion on the exploitation of nurses and the inadequacy of existing privacy measures.</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+</div>
+</body>
+</html>
