@@ -30,7 +30,10 @@ jobs:
         run: |
            mkdir -p data/data
            mkdir -p data/public
-           docker run -e OPENAI_API_KEY="$CHATGPT_KEY" -v $(pwd)/data:/data dhelmr/hn-security-digest:latest python main.py create-data --limit 70 --data /data/data --end-day 2025-02-07 --days 3
+           docker run -e OPENAI_API_KEY="$CHATGPT_KEY" -v $(pwd)/data:/data dhelmr/hn-security-digest:latest python main.py create-data --limit 5 --data /data/data --end-day $(date +%F) --days 1
+           git add data/*
+           git commit -m "Add data for $(date +%F)"
+           git push
            docker run -v $(pwd)/data:/data dhelmr/hn-security-digest:latest python main.py render --data /data/data -o /data/public/
            ls data/public
         env:
